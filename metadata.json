@@ -1,0 +1,8 @@
+{
+  "name": "Citame - gestor de arquivos e referências",
+  "description": "Sistema pessoal de gerenciamento local de artigos PDF e referências bibliográficas ABNT/APA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
