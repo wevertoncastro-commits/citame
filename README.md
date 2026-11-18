@@ -67,16 +67,18 @@ O modo online usa PostgreSQL e Storage do Supabase. No modo local continuam send
 
 ```text
 SUPABASE_URL
-SUPABASE_ANON_KEY
-SUPABASE_SERVICE_ROLE_KEY
+SUPABASE_PUBLISHABLE_KEY  # ou SUPABASE_ANON_KEY
+SUPABASE_SECRET_KEY       # ou SUPABASE_SERVICE_ROLE_KEY
 SUPABASE_DATABASE_URL
 SUPABASE_STORAGE_BUCKET=citame-library
 ```
 
+Se você usou **Add Integration > Supabase** na Vercel, a conexão PostgreSQL também pode chegar como `POSTGRES_URL`; o Citame reconhece essa variável automaticamente.
+
 7. Opcionalmente configure `GEMINI_API_KEY`.
 8. Confirme **Build Command** como `npm run build` e faça o deploy.
 
-Não exponha `SUPABASE_SERVICE_ROLE_KEY` nem `SUPABASE_DATABASE_URL` em variáveis com prefixo `VITE_`. Elas são usadas somente pela função do servidor. O upload de PDFs é assinado pelo servidor e enviado diretamente ao Storage pelo navegador, evitando o limite de corpo das funções Vercel.
+Não exponha `SUPABASE_SECRET_KEY`, `SUPABASE_SERVICE_ROLE_KEY` nem a URL do banco em variáveis com prefixo `VITE_`. Elas são usadas somente pela função do servidor. O upload de PDFs é assinado pelo servidor e enviado diretamente ao Storage pelo navegador, evitando o limite de corpo das funções Vercel.
 
 As APIs do suplemento Word continuam disponíveis somente no modo local com SQLite; não configure ou publique o manifesto do Word para o endereço Vercel.
 
